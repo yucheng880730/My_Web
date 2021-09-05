@@ -1,17 +1,29 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDom from 'react-dom';
+import 'semantic-ui-css/semantic.min.css'
+import { Header, Button, Image } from 'semantic-ui-react';
+import Pic from './img/head.jpg'
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+function Home() {
+    return (
+        <div>
+            <Header as='h1'>Hello</Header>
+            <HeaderImage />
+            <HomeButton />
+        </div>
+    )
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const HomeButton = () => {
+    return(
+        <div>
+            <Button primary>RESUME</Button>
+            <Button secondary>PROJECTS</Button>
+        </div>
+    )
+}
+
+const HeaderImage = () => <Image src={Pic} alt="" size='medium' circular />
+
+ReactDom.render(<Home />, document.getElementById('root'));

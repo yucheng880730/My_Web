@@ -4,6 +4,14 @@ import 'semantic-ui-css/semantic.min.css'
 import { Header, Button, Image } from 'semantic-ui-react';
 import Pic from './img/head.jpg'
 import './index.css';
+import SpecificResume from './components/Resume'
+import {resumes} from './components/resumes';
+
+import About from './components/About';
+import Contact from './components/Contact';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
+const HeaderImage = () => <Image src={Pic} alt="" size='medium' circular />
 
 function Home() {
     return (
@@ -24,6 +32,30 @@ const HomeButton = () => {
     )
 }
 
-const HeaderImage = () => <Image src={Pic} alt="" size='medium' circular />
+function ResumeList() {
+  return (
+    <section className='booklist'>
+      {resumes.map((resume) => {
+        return <SpecificResume key={resume.id} {...resume}></SpecificResume>;
+      })}
+    </section>
+  );
+}
 
-ReactDom.render(<Home />, document.getElementById('root'));
+ReactDom.render(
+  <Router>
+    <div>
+        <Home />
+        <ResumeList />
+        <Switch>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Route path="/about">
+            <About /> 
+          </Route>
+        </Switch>
+    </div>
+  </Router>
+  , document.getElementById('root')
+);

@@ -10,26 +10,3 @@ body {
   background-color: rgb(220, 220, 220);
   color: #222;
 }
-
-.hello {
-  margin-bottom: 10px;
-  font-size: 100px;
-}
-
-.headimg {
-  background-color: #fff;
-  border-radius: 1rem;
-  padding: 1rem 2rem;
-}
-
-/* .resumebutton {
-  background-color: blue;
-  color: #fff;
-  font-size: 20px;
-  margin-right: "0.25em";
-}
-
-.projectbutton {
-  font-size: 20px;
-  border: 2px solid gray;
-} */
